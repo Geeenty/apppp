@@ -1,4 +1,5 @@
 package com.misis.archapp.user.service.publisher;
+
 import com.misis.archapp.contract.dto.UserCreatedEvent;
 import com.misis.archapp.contract.configuration.RabbitConfiguration;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -17,9 +18,9 @@ public class UserEventPublisher {
 
     public void publishUserEvent(UserCreatedEvent event) {
         rabbitTemplate.convertAndSend(
-            RabbitConfiguration.USER_EXCHANGE,
-            "user.created",
-            event
+                RabbitConfiguration.USER_EXCHANGE,
+                "user.created",
+                event
         );
     }
 
